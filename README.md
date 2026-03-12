@@ -47,6 +47,6 @@ The project is divided into two main directories:
    ```
 
 ## Running the Application
-After starting both servers, the backend will be listening on its assigned port, and the frontend will run locally (typically at `http://localhost:5173`).
+After starting both servers, the backend will be listening on its assigned port, and the frontend will run locally.
 
 Open your browser and navigate to the Vite local URL to view and interact with the Dynamic Form Builder!

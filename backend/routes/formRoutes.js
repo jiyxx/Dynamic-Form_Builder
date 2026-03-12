@@ -7,7 +7,7 @@ const {
   updateForm,
   duplicateForm,
   deleteForm,
-} = require("../controllers/formController");
+} = require("https://dynamic-form-builder-0176.onrender.com/controllers/formController");
 
 router.post("/", createForm);
 router.get("/", getForms);

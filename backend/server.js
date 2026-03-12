@@ -13,11 +13,11 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-app.use("/api/forms", require("./routes/formRoutes"));
-app.use("/api/responses", require("./routes/responseRoutes"));
+app.use("https://dynamic-form-builder-0176.onrender.com/api/forms", require("./routes/formRoutes"));
+app.use("https://dynamic-form-builder-0176.onrender.com/api/responses", require("./routes/responseRoutes"));
 
 // Health check
-app.get("/", (req, res) => {
+app.get("https://dynamic-form-builder-0176.onrender.com/health", (req, res) => {
   res.json({ message: "FormForge API is running" });
 });
 

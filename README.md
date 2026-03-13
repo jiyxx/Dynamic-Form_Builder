@@ -50,3 +50,19 @@ The project is divided into two main directories:
 After starting both servers, the backend will be listening on its assigned port, and the frontend will run locally.
 
 Open your browser and navigate to the Vite local URL to view and interact with the Dynamic Form Builder!
+
+## 🤝 Contributing
+```
+git clone repo
+npm install (both dirs)
+npm run dev
+```
+
+## 📄 License
+MIT - Use freely!
+
+## 👨‍💻 Author
+Shukla Jiya 
+Registration no. - 2023/16421
+
+⭐ Star if helpful!

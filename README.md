@@ -63,6 +63,7 @@ MIT - Use freely!
 
 ## 👨‍💻 Author
 Shukla Jiya 
-Registration no. - 2023/16421
+
+(Registration no. - 2023/16421)
 
 ⭐ Star if helpful!

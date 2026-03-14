@@ -1,7 +1,7 @@
 const Form = require("../models/Form");
 const Response = require("../models/Response");
 
-// POST /api/responses — Submit a form response
+
 exports.submitResponse = async (req, res, next) => {
   try {
     const { formId, answers } = req.body;
@@ -16,7 +16,7 @@ exports.submitResponse = async (req, res, next) => {
       return res.status(404).json({ message: "Form not found" });
     }
 
-    // Validate required fields
+  
     const errors = [];
     form.fields.forEach((field) => {
       if (field.required) {
@@ -44,7 +44,7 @@ exports.submitResponse = async (req, res, next) => {
   }
 };
 
-// GET /api/responses/:formId — Get all responses for a form
+
 exports.getResponses = async (req, res, next) => {
   try {
     const { formId } = req.params;
@@ -69,7 +69,7 @@ exports.getResponses = async (req, res, next) => {
   }
 };
 
-// GET /api/responses/:formId/csv — Download responses as CSV
+
 exports.downloadCsv = async (req, res, next) => {
   try {
     const { formId } = req.params;
@@ -82,7 +82,7 @@ exports.downloadCsv = async (req, res, next) => {
       .sort({ submittedAt: -1 })
       .lean();
 
-    // Build CSV header from field labels
+    
     const headers = [
       ...form.fields.map((f) => f.label),
       "Submitted At",
@@ -96,7 +96,7 @@ exports.downloadCsv = async (req, res, next) => {
         const val = Array.isArray(answer.value)
           ? answer.value.join("; ")
           : answer.value;
-        // Escape CSV values
+        
         return `"${String(val).replace(/"/g, '""')}"`;
       });
       row.push(`"${new Date(r.submittedAt).toISOString()}"`);
@@ -128,7 +128,7 @@ exports.getAnalytics = async (req, res, next) => {
     const totalResponses = await Response.countDocuments({ formId });
     const responses = await Response.find({ formId }).lean();
 
-    // Build breakdowns for choice-type fields
+    
     const choiceTypes = ["dropdown", "radio", "checkbox"];
     const fieldBreakdowns = form.fields
       .filter((f) => choiceTypes.includes(f.type))

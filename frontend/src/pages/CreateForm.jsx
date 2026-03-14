@@ -29,8 +29,7 @@ const CreateForm = () => {
   const handleSave = async (formData) => {
     try {
       setIsLoading(true);
-      // Ensure the generated form is marked as published for users to fill.
-      // In a real app we might have a separate "Publish" step.
+      
       const payload = { ...formData, isPublished: true };
 
       if (id) {

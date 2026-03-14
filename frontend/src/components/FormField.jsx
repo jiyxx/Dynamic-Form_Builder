@@ -3,7 +3,7 @@ import { Trash2, GripVertical } from 'lucide-react';
 
 const FormField = ({
   field,
-  mode = 'preview', // 'preview' | 'input'
+  mode = 'preview', 
   value,
   onChange,
   error,
@@ -13,7 +13,7 @@ const FormField = ({
 }) => {
   const { type, label, placeholder, options, required, alignment } = field;
 
-  // Render the actual input form element
+  
   const renderInput = () => {
     switch (type) {
       case 'text':
@@ -152,7 +152,7 @@ const FormField = ({
     );
   }
 
-  // Input mode
+  
   return (
     <div className="mb-6 p-1">
       <label className={`block font-semibold text-gray-800 mb-2 ${getAlignmentClass()}`}>

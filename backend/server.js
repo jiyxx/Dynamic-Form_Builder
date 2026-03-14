@@ -8,20 +8,20 @@ connectDB();
 
 const app = express();
 
-// Middleware
+
 app.use(cors());
 app.use(express.json());
 
-// Routes
+
 app.use("https://dynamic-form-builder-0176.onrender.com/api/forms", require("./routes/formRoutes"));
 app.use("https://dynamic-form-builder-0176.onrender.com/api/responses", require("./routes/responseRoutes"));
 
-// Health check
+
 app.get("https://dynamic-form-builder-0176.onrender.com/health", (req, res) => {
   res.json({ message: "FormForge API is running" });
 });
 
-// Error handling middleware
+
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(err.status || 500).json({

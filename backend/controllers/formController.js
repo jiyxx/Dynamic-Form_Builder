@@ -1,7 +1,7 @@
 const Form = require("../models/Form");
 const Response = require("../models/Response");
 
-// POST /api/forms — Create a new form
+
 exports.createForm = async (req, res, next) => {
   try {
     const { title, description, fields, style, isPublished } = req.body;
@@ -21,7 +21,7 @@ exports.createForm = async (req, res, next) => {
   }
 };
 
-// GET /api/forms — List all forms with optional search & pagination
+
 exports.getForms = async (req, res, next) => {
   try {
     const page = parseInt(req.query.page) || 1;
@@ -39,7 +39,7 @@ exports.getForms = async (req, res, next) => {
       .limit(limit)
       .lean();
 
-    // Attach response count to each form
+    
     const formIds = forms.map((f) => f._id);
     const counts = await Response.aggregate([
       { $match: { formId: { $in: formIds } } },
@@ -78,7 +78,7 @@ exports.getForm = async (req, res, next) => {
   }
 };
 
-// PUT /api/forms/:id — Update a form
+
 exports.updateForm = async (req, res, next) => {
   try {
     const form = await Form.findByIdAndUpdate(req.params.id, req.body, {
@@ -94,7 +94,7 @@ exports.updateForm = async (req, res, next) => {
   }
 };
 
-// POST /api/forms/:id/duplicate — Duplicate a form
+
 exports.duplicateForm = async (req, res, next) => {
   try {
     const original = await Form.findById(req.params.id).lean();
@@ -113,7 +113,7 @@ exports.duplicateForm = async (req, res, next) => {
   }
 };
 
-// DELETE /api/forms/:id — Delete a form and all its responses
+
 exports.deleteForm = async (req, res, next) => {
   try {
     const form = await Form.findByIdAndDelete(req.params.id);
